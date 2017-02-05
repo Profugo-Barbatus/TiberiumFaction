@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+	<ThingDef ParentName="BuildingBase">
+		<defName>NodObelisk</defName>
+		<label>Obelisk Of Light</label>
+		<thingClass>Building_TurretGun</thingClass>
+		<size>(2,5)</size>
+		<graphicData>
+			<texPath>Building/Nod/Defense/ObeliskOfLight_back</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(3,6)</drawSize>
+		</graphicData>
+		<minifiedDef>MinifiedFurniture</minifiedDef>
+		<altitudeLayer>Building</altitudeLayer>
+		<stealable>false</stealable>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+			<WorkToBuild>2500</WorkToBuild>
+			<Mass>100</Mass>
+			<Beauty>-60</Beauty>
+		</statBases>
+		<tickerType>Normal</tickerType>
+		<comps>
+			<li Class="CompProperties_Explosive">
+				<explosiveRadius>3.9</explosiveRadius>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<chanceNeverExplodeFromDamage>0.5</chanceNeverExplodeFromDamage>
+			</li>
+			<li Class="CompProperties_Forbiddable"/>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>350</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+		<description>Advanced Nod laser weaponry - The Obelisk of Light.</description>
+		<passability>PassThroughOnly</passability>
+		<pathCost>50</pathCost>
+		<fillPercent>0.4</fillPercent>
+		<castEdgeShadows>true</castEdgeShadows>
+		<costList>
+			<Steel>100</Steel>
+			<Component>3</Component>
+		</costList>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<designationCategory>Security</designationCategory>
+		<specialDisplayRadius>25.9</specialDisplayRadius>
+		<building>
+			<ai_combatDangerous>false</ai_combatDangerous>
+			<turretGunDef>Gun_TurretImprovised</turretGunDef>
+			<turretBurstCooldownTime>5.15</turretBurstCooldownTime>
+			<turretTopgraphicPath>Things/Building/Security/TurretImprovised_Top</turretTopgraphicPath>
+		</building>
+		<researchPrerequisites>
+			<li>GunTurrets</li>
+			<li>NodResearch</li>
+		</researchPrerequisites>
+	</ThingDef>
+	
+	
+	<ThingDef ParentName="DoorBase">
+		<defName>NodDoor</defName>
+		<label>nod door</label>
+		<description>Divides rooms. Must be manually opened and closed, which slows people down. Approved by Kane.</description>
+		<statBases>
+			<WorkToBuild>1000</WorkToBuild>
+		</statBases>
+		<graphicData>
+			<texPath>Building/Nod/Defense/DoorSimpleNod</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<damageData>
+				<!--  no damage marks because they don't move with the door
+				<rect>(0,0.12,1,0.76)</rect>-->
+				<enabled>false</enabled>
+			</damageData>
+		</graphicData>
+		<uiIconPath>Building/Nod/Defense/DoorSimpleNod_MenuIcon</uiIconPath>
+		<researchPrerequisites>
+			<li>NodResearch</li>
+		</researchPrerequisites>
+	</ThingDef>	
+	
+	<ThingDef ParentName="DoorBase">
+		<defName>NodAutodoor</defName>
+		<label>nod autodoor</label>
+		<description>Divides rooms. Powered operation allows people to move through the door without slowing down. Approved by Kane.</description>
+		<statBases>
+			<WorkToBuild>1100</WorkToBuild>
+		</statBases>
+		<graphicData>
+			<texPath>Building/Nod/Defense/AutoDoorNod</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<damageData>
+				<!--  no damage marks because they don't move with the door
+				<rect>(0,0.12,1,0.76)</rect>-->
+				<enabled>false</enabled>
+			</damageData>
+		</graphicData>
+		<uiIconPath>Building/Nod/Defense/AutoDoorNod_MenuIcon</uiIconPath>
+		<costList>
+			<Steel>40</Steel>
+			<Component>2</Component>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>50</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+		<researchPrerequisites>
+			<li>Autodoors</li>
+			<li>NodResearch</li>
+		</researchPrerequisites>
+	</ThingDef>
+
+	<ThingDef ParentName="BuildingBase" Name="Wall">
+		<defName>NodWall</defName>
+		<label>Nod wall</label>
+		<thingClass>Building</thingClass>
+		<category>Building</category>
+		<description>An impassable wall. Protecting you from GDI, approved by Kane.</description>
+		<graphicData>
+			<texPath>Building/Nod/Defense/NodWall</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<linkType>CornerFiller</linkType>
+			<linkFlags>
+				<li>Wall</li>
+				<li>Rock</li>
+			</linkFlags>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+				<edgeTop>Damage/Edge</edgeTop>
+				<edgeBot>Damage/Edge</edgeBot>
+				<edgeLeft>Damage/Edge</edgeLeft>
+				<edgeRight>Damage/Edge</edgeRight>
+			</damageData>
+		</graphicData>
+		<blueprintGraphicData>
+			<texPath>Things/Building/Linked/Wall_Blueprint_Atlas</texPath>
+		</blueprintGraphicData>
+		<uiIconPath>Building/Nod/Defense/NodWall_MenuIcon</uiIconPath>
+		<costList>
+			<Steel>15</Steel>
+		</costList>
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<WorkToBuild>275</WorkToBuild>
+			<Flammability>0.5</Flammability>
+		</statBases>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<blockWind>true</blockWind>
+		<castEdgeShadows>true</castEdgeShadows>
+		<fillPercent>1</fillPercent>
+		<coversFloor>true</coversFloor>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+		<tickerType>Never</tickerType>
+		<rotatable>false</rotatable>
+		<selectable>true</selectable>
+		<neverMultiSelect>true</neverMultiSelect>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<holdsRoof>true</holdsRoof>
+		<designationCategory>Structure</designationCategory>
+		<staticSunShadowHeight>1.0</staticSunShadowHeight>
+		<blockLight>true</blockLight>
+		<building>
+			<isInert>true</isInert>
+			<ignoreNeedsPower>true</ignoreNeedsPower>
+		</building>
+		<comps>
+			<li Class="CompProperties_Glower">
+				<glowRadius>1</glowRadius>
+				<glowColor>(255,0,0,0)</glowColor>
+			</li>
+		</comps>
+		<damageMultipliers>
+			<li>
+				<damageDef>Bomb</damageDef>
+				<multiplier>2</multiplier>
+			</li>
+		</damageMultipliers>
+		<researchPrerequisites>
+			<li>NodResearch</li>
+		</researchPrerequisites>
+	</ThingDef>
+	
+	
+	<ThingDef ParentName="BuildingBase">
+		<defName>NODLaserFence</defName>
+		<label>Laser Fence</label>
+		<thingClass>Building</thingClass>
+		<category>Building</category>
+		<graphicData>
+			<texPath>Building/Nod/Defense/LaserWall</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<linkType>Basic</linkType>
+			<linkFlags>
+				<li>Wall</li>
+				<li>Rock</li>
+			</linkFlags>
+		</graphicData>
+		<blueprintGraphicData>
+			<texPath>Things/Building/Linked/Wall_Blueprint_Atlas</texPath>
+		</blueprintGraphicData>
+		<uiIconPath>Building/Nod/Defense/LaserWallIcon</uiIconPath>
+		<altitudeLayer>Building</altitudeLayer>
+		<pathCostIgnoreRepeat>true</pathCostIgnoreRepeat>
+		<passability>Impassable</passability>
+		<castEdgeShadows>true</castEdgeShadows>
+		<fillPercent>0.65</fillPercent>
+		<statBases>
+			<MaxHitPoints>450</MaxHitPoints>
+			<Beauty>-10</Beauty>
+			<WorkToBuild>180</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<building>
+			<ai_chillDestination>false</ai_chillDestination>
+			<isInert>true</isInert>
+		</building>
+		<description>Cover from gunfire.</description>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+		<costList>
+			<Steel>12</Steel>
+		</costList>
+		<filthLeaving>SandbagRubble</filthLeaving>
+		<rotatable>false</rotatable>
+		<selectable>true</selectable>
+		<neverMultiSelect>true</neverMultiSelect>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<designationCategory>Security</designationCategory>
+		<staticSunShadowHeight>0.20</staticSunShadowHeight>
+		<constructEffect>ConstructDirt</constructEffect>
+		<repairEffect>ConstructDirt</repairEffect>
+		<comps>
+			<li Class="CompProperties_Glower">
+				<glowRadius>1</glowRadius>
+				<glowColor>(255,0,0,0)</glowColor>
+			</li>
+		</comps>
+		<researchPrerequisites>
+			<li>NodResearch</li>
+		</researchPrerequisites>
+	</ThingDef>
+
+</ThingDefs>

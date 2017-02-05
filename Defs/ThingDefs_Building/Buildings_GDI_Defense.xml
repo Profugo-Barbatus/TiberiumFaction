@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+	<ThingDef ParentName="BuildingBase">
+		<defName>SonicEmitter</defName>
+		<label>Sonic Emitter</label>
+		<thingClass>Building_TurretGun</thingClass>
+		<size>(2,2)</size>
+		<graphicData>
+			<texPath>Building/GDI/Defense/SonicBase</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(2,2)</drawSize>
+			<damageData>
+				<rect>(0.2,0.2,0.6,0.6)</rect>
+			</damageData>
+		</graphicData>
+		<minifiedDef>MinifiedFurniture</minifiedDef>
+		<altitudeLayer>Building</altitudeLayer>
+		<stealable>false</stealable>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+			<WorkToBuild>2500</WorkToBuild>
+			<Mass>100</Mass>
+			<Beauty>-60</Beauty>
+		</statBases>
+		<tickerType>Normal</tickerType>
+		<comps>
+			<li Class="CompProperties_Explosive">
+				<explosiveRadius>3.9</explosiveRadius>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<chanceNeverExplodeFromDamage>0.5</chanceNeverExplodeFromDamage>
+			</li>
+			<li Class="CompProperties_Forbiddable"/>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>350</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+		<description>A GDI weapon primarily used to eradicate Tiberium, but later on weaponized for war, the shots can't be directly controlled, so beware of friendly fire.</description>
+		<passability>PassThroughOnly</passability>
+		<pathCost>50</pathCost>
+		<fillPercent>0.4</fillPercent>
+		<castEdgeShadows>true</castEdgeShadows>
+		<costStuffCount>75</costStuffCount>
+		<costList>
+			<Steel>100</Steel>
+			<Component>3</Component>
+		</costList>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<designationCategory>Security</designationCategory>
+		<specialDisplayRadius>25.9</specialDisplayRadius>
+		<building>
+			<ai_combatDangerous>true</ai_combatDangerous>
+			<turretGunDef>Gun_SonicEmitter</turretGunDef>
+			<turretBurstCooldownTime>5.15</turretBurstCooldownTime>
+			<turretTopgraphicPath>Building/GDI/Defense/SonicTurret</turretTopgraphicPath>
+		</building>
+		<researchPrerequisites>
+			<li>GunTurrets</li>
+		</researchPrerequisites>
+	</ThingDef>
+	
+	<ThingDef ParentName="BaseHumanGun">
+		<defName>Gun_SonicEmitter</defName>
+		<label>Sonic Emitter Turret</label>
+		<graphicData>
+			<texPath>Building/GDI/Defense/SonicTurret</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+		<menuHidden>true</menuHidden>
+		<description>Sonic emitter turret, beware of noise!</description>
+		<soundInteract>InteractRifle</soundInteract>
+		<canBeSpawningInventory>false</canBeSpawningInventory>
+		<tradeability>Never</tradeability>
+		<destroyOnDrop>true</destroyOnDrop>
+		<statBases>
+			<AccuracyTouch>0.80</AccuracyTouch>
+			<AccuracyShort>0.64</AccuracyShort>
+			<AccuracyMedium>0.41</AccuracyMedium>
+			<AccuracyLong>0.22</AccuracyLong>
+			<RangedWeapon_Cooldown>0.66</RangedWeapon_Cooldown>
+		</statBases>
+		<weaponTags>
+			<li>TurretGun</li>
+		</weaponTags>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<projectileDef>Bullet_TurretImprovised</projectileDef>
+				<warmupTime>1.5</warmupTime>
+				<range>25.9</range>
+				<ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+				<burstShotCount>3</burstShotCount>
+				<soundCast>GunShotA</soundCast>
+				<soundCastTail>GunTail_Light</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+	</ThingDef>
+	
+	<ThingDef ParentName="BuildingBase">
+		<defName>GDIInhibiter_t</defName>
+		<label>Tiberium Inhibiter (Tall)</label>
+		<description>Prevents Tiberium growth.</description>
+		<graphicData>
+			<texPath>Building/GDI/Defense/inhibiter_Tall</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shadowData>
+				<volume>(0.25, 0.5, 0.25)</volume>
+				<offset>(0,0,-0.1)</offset>
+			</shadowData>
+			<damageData>
+				<rect>(0.2,0.2,0.6,0.6)</rect>
+			</damageData>
+		</graphicData>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<startElectricalFires>true</startElectricalFires>
+				<basePowerConsumption>150</basePowerConsumption>
+				<shortCircuitInRain>false</shortCircuitInRain>
+			</li>
+			<li Class="CompProperties_TerrainPumpDry">
+				<radius>4</radius>
+				<daysToRadius>60</daysToRadius>
+			</li>
+		</comps>
+		<tickerType>Rare</tickerType>
+		<altitudeLayer>Building</altitudeLayer>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<WorkToBuild>1500</WorkToBuild>
+			<Flammability>1.0</Flammability>
+			<Beauty>-8</Beauty>
+		</statBases>
+		<fillPercent>0.15</fillPercent>
+		<building>
+			<ai_chillDestination>false</ai_chillDestination>
+		</building>
+		<costList>
+			<Steel>75</Steel>
+			<Component>5</Component>
+		</costList>
+		<specialDisplayRadius>4</specialDisplayRadius>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<pathCost>25</pathCost>
+		<designationCategory>Misc</designationCategory>
+		<rotatable>false</rotatable>
+		<researchPrerequisites>
+			<li>GDIResearch</li>
+		</researchPrerequisites>
+	</ThingDef>
+	
+	<ThingDef ParentName="BuildingBase">
+		<defName>GDIInhibiter_s</defName>
+		<label>Tiberium Inhibiter (Small)</label>
+		<description>Prevents Tiberium growth.</description>
+		<graphicData>
+			<texPath>Building/GDI/Defense/inhibiter_small</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shadowData>
+				<volume>(0.25, 0.5, 0.25)</volume>
+				<offset>(0,0,-0.1)</offset>
+			</shadowData>
+			<damageData>
+				<rect>(0.2,0.2,0.6,0.6)</rect>
+			</damageData>
+		</graphicData>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<startElectricalFires>true</startElectricalFires>
+				<basePowerConsumption>150</basePowerConsumption>
+				<shortCircuitInRain>false</shortCircuitInRain>
+			</li>
+		</comps>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>Building</altitudeLayer>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>1500</WorkToBuild>
+			<Flammability>1.0</Flammability>
+			<Beauty>10</Beauty>
+		</statBases>
+		<fillPercent>0.15</fillPercent>
+		<building>
+			<ai_chillDestination>false</ai_chillDestination>
+		</building>
+		<costList>
+			<Steel>75</Steel>
+			<Component>5</Component>
+		</costList>
+		<specialDisplayRadius>4</specialDisplayRadius>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<pathCost>25</pathCost>
+		<designationCategory>Misc</designationCategory>
+		<rotatable>false</rotatable>
+		<researchPrerequisites>
+			<li>GDIResearch</li>
+		</researchPrerequisites>
+	</ThingDef>
+
+
+</ThingDefs>
