@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Buildings>
+
+	<ThingDef ParentName="FurnitureBase">
+		<defName>TiberiumPot</defName>
+		<label>tiberium pot</label>
+		<!-- Needs a special class to grow "fake" Tiberium -->
+		<thingClass>Building_PlantGrower</thingClass>
+		<graphicData>
+			<texPath>Building/Neutral/pot</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shadowData>
+				<volume>(0.3, 0.6, 0.3)</volume>
+			</shadowData>
+			<damageData>
+				<rect>(0.2,0.2,0.6,0.6)</rect>
+			</damageData>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.20</fillPercent>
+		<statBases>
+			<MaxHitPoints>150</MaxHitPoints>
+			<WorkToBuild>495</WorkToBuild>
+			<Mass>2</Mass>
+			<Flammability>1.0</Flammability>
+		</statBases>
+		<costList>
+			<Steel>65</Steel>
+		</costList>
+		<description>A pot, a special pot to be exact.</description>
+		<comps>
+			<li Class="CompProperties_Forbiddable"/>
+		</comps>
+		<fertility>1.0</fertility>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<building>
+			<defaultPlantToGrow>PlantDaylily</defaultPlantToGrow>
+			<sowTag>Decorative</sowTag>
+		</building>
+		<rotatable>false</rotatable>
+	</ThingDef>
+
+</Buildings>

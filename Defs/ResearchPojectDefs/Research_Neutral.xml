@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	
+	<ResearchProjectDef>
+		<defName>CommandandConquer</defName>
+		<label>Command and Conquer</label>
+		<description>Start commanding and conquering.</description>
+		<baseCost>250</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>TiberiumResearch</li>
+		</prerequisites>
+		<requiredResearchBuilding>TiberiumResearchBench</requiredResearchBuilding>
+		<researchViewX>13</researchViewX>
+		<researchViewY>2</researchViewY>
+	</ResearchProjectDef>
+	
+
+</Defs>
